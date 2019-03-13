@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a
+    class="navbar-brand"
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Super duper todo app</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mr-auto">
+      <a
+        class="nav-item nav-link"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+      <a class="nav-item nav-link" routerLink="/todo" routerLinkActive="active" [ngClass]="{'disabled': !loggedIn()}" >Todo</a>
+    </div>
+    <ng-template [ngIf]="loggedIn()">
+      <button class="btn btn-outline-primary mr-1" (click)="onSaveTodos()">Save todos</button>
+      <button class="btn btn-outline-primary" (click)="onLoadTodos()">Load todos</button>
+    </ng-template>
+    <ng-template [ngIf]="!loggedIn()">
+      <button class="btn btn-primary mr-1" [routerLink]="['/signin']" routerLinkActive="active" >Login</button>
+      <button class="btn btn-primary" [routerLink]="['/signup']" routerLinkActive="active" >Register</button>
+    </ng-template>
+  </div>
+</nav>

@@ -1,0 +1,10 @@
+.todo-list {
+    background: #e8e8e8;
+    border-radius: 4px;
+    padding: 5px;
+    width: 450px;
+    list-style: none !important;
+  }
+  ul {
+      list-style: none !important
+  }

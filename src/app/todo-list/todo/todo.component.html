@@ -1,0 +1,12 @@
+<li appHighlight  class="todo">
+  <div class="d-flex justify-content-between" [ngClass]="todo.isCompleted ? 'itemCompleted' : 'itemPending'">
+    <div [ngClass]="{'completed': todo.isCompleted}"
+      >{{ todo.text }}
+  </div>
+    <div>
+      <button [disabled]="todo.isCompleted" class="btn btn-info" (click)="edit(i)">Edit</button>
+      <button [disabled]="todo.isCompleted" class="btn btn-success" (click)="complete(i)">Complete</button>
+      <button class="btn btn-danger" (click)="delete(i)">X</button>
+    </div>
+  </div>
+</li>

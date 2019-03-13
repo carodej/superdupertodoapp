@@ -1,0 +1,26 @@
+<div class=" mt-5 card p-3 todo-list container">
+<app-todo-count></app-todo-count>
+  <hr>
+  <ul class="list-group-flush p-0">
+
+    <app-todo
+      *ngFor="let todo of todos; let i = index"
+      [i]="i"
+      [todo]="todo"
+    ></app-todo>
+  </ul>
+  <hr />
+  <div class="d-flex">
+    <input
+      class="mr-3"
+      style="width: 150%"
+      type="text"
+      placeholder="Add todo..."
+      (keydown)="keyDownFunction($event, textInput.value)"
+      #textInput
+    />
+    <button class="btn btn-primary btn-block" (click)="add(textInput.value);">
+      Add
+    </button>
+  </div>
+</div>
